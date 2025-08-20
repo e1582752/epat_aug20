@@ -8,10 +8,12 @@ COPY mvnw.cmd .
 COPY .mvn .mvn
 COPY src src
 COPY pom.xml .
+
+# build the application
 RUN ./mvnw package -DskipTests=true
 
 # second stage
-FROM openjdk:23-jdk-oracle
+FROM openjdk:17-jdk-oracle
 
 WORKDIR /runningapp
 
